@@ -3,13 +3,15 @@
 00. Global variables & Utility classes
 01. Container
   02. Player Body/Card Container
-    03. Cover Image Section
-    04. Playlist Section
-      05. Playlist Artist
-      06. Playlist Album
-      07. Playlist Save
-      08. Playlist Tracks
-        09. Playlist Track Container
+    03. Controls section
+      04. Overlay
+        05. Track Seekbar
+        06. Track Controls
+    07. Player Playlist section
+      08. Playlist Artist
+      09. Playlist Album
+      10. Playlist Save
+      11. Playlist Tracks
 ====================================================== 
 */
 
@@ -53,91 +55,160 @@ body {
   grid-template-columns: auto 1fr;
   justify-content: center;
   align-items: center;
+
   width: 770px;
   height: 370px;
-  box-shadow: 0px 2px 8px var(--gray);
-  background: var(--white);
+
   color: var(--dark-gray);
   border-radius: 5px;
+  box-shadow: 0px 2px 8px var(--gray);
+  background: var(--white);
 }
 
-/* 03. Cover Image */
-.player__cover-image {
-  /* border: 2px solid red; */
-  height: 100%;
+/* 03. Controls section */
+.player__controls {
+  /* Relative position for overlay */
+  position: relative;
+
+  /* Cover image */
+  background-image: url(../assets/rectangle-3@2x.png);
+  background-position: center;
+  background-size: cover;
+  object-fit: fill;
+
+  height: 370px;
+  width: 370px;
 }
 
-.player__cover-image img {
-  display: block;
+/* 04. Overlay */
+.player__overlay {
+  /* Absolute position for overlay */
+  position: absolute;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  height: 38%;
+  bottom: 0;
+  background-color: rgba(94, 94, 94, 0.75);
 
-/* 04. Playlist */
-.player__playlist {
-  border: 2px solid blue;
-  padding: 1rem;
-  height: 100%;
+  /* Player controls grid container */
   display: grid;
-  grid-template-columns: .5fr 7fr 1.5fr 1fr;
-  grid-template-rows: .1fr .1fr auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  color: var(--white);
 }
 
-/* 05. Playlist Artist */
-.player__playlist--artist {
-  border: 2px solid cyan;
-  grid-column: 1/4;
-  grid-row: auto;
-  font-size: 1.5rem;
-}
-
-/* 06. Playlist Album */
-.player__playlist--album {
-  border: 2px solid yellow;
-  grid-column: 1/4;
-  grid-row: auto;
-  font-size: 1rem;
-}
-
-/* 07. Playlist Save */
-.player__playlist--save {
-  border: 2px solid green;
-  grid-column: 4/5;
+/* 05. Track Seekbar */
+.player__seekbar {
+  grid-column: 1/6;
   grid-row: 1/3;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.line {
+  width: 85%;
+
+  border: 2px solid var(--primary);
+}
+
+
+#seekbar-ellipse {
+  height: 1.5rem;
+  width: 1.5rem;
+
+  padding: .25rem;
+
+  border-radius: 100%;
+  color: var(--white);
+  background-color: var(--white);
+}
+
+/* 06. Track Controls */
+.track-control {
+  grid-row: 3/5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-control > * {
+  cursor: pointer;
+}
+
+.background-icon {
+  position: absolute;
+}
+
+.icon {
+  position: absolute;
+}
+
+/* 07. Player Playlist section */
+.player__playlist {
+  display: grid;
+  grid-template-columns: .5fr 7fr 1.5fr 1fr;
+  grid-template-rows: .1fr .1fr auto;
+
+  height: 100%;
+
+  padding: 1rem;
+}
+
+/* 08. Playlist Artist */
+.player__playlist--artist {
+  grid-column: 1/4;
+  grid-row: auto;
+
+  font-size: 1.5rem;
+}
+
+/* 09. Playlist Album */
+.player__playlist--album {
+  grid-column: 1/4;
+  grid-row: auto;
+
+  font-size: 1rem;
+}
+
+/* 10. Playlist Save */
+.player__playlist--save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-column: 4/5;
+  grid-row: 1/3;
+}
+
+/* Heart Icon */
 .player__playlist--save img {
-  border: 2px solid red;
   width: 1.25rem;
   height: 1.147rem;
 }
 
-/* 08. Playlist Tracks */
+/* 11. Playlist Tracks */
 .player__playlist--tracks {
-  margin-top: 1rem;
-  border: 2px solid magenta;
   grid-column: 1/5;
   grid-row: 3/4;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  margin-top: 1rem;
+
   font-size: .75rem;
 }
 
 .track-container {
   display: grid;
   grid-template-columns: .5fr 7fr 1.5fr 1fr;
-  border: 1px solid cyan;
 }
 
-.track-container > * {
-  border: 1px solid red;
-}
-
+/* Active song Icon */
 .track-play-status {
   display: flex;
   justify-content: center;

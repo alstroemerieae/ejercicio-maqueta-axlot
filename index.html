@@ -18,11 +18,40 @@
   <main class="container">
     <!-- Player body/card -->
     <div class="player">
-      <!-- Cover image section -->
-      <div class="player__cover-image">
-        <img src="/assets/rectangle-3@2x.png" alt="" srcset="">
+      <!-- Player Controls section -->
+      <div class="player__controls">
+        <!-- Trasparent overlay -->
+        <div class="player__overlay">
+          <!-- Track Seekbar section -->
+          <div class="player__seekbar">
+            <div class="line">
+            </div>
+            <img id="seekbar-ellipse"src="/assets/ellipse-3.svg" alt="" srcset="">
+          </div>
+          <!-- Track Controls section -->
+          <div class="player__track--repeat track-control">
+            <img src="/assets/ic_repeat_black_24px.svg" alt="" srcset="">
+          </div>
+          <div class="player__track--fastrewind track-control">
+            <img src="/assets/ic_fast_rewind_black_24px.svg" alt="" srcset="">
+          </div>
+          <div class="player__track--play track-control">
+            <div class="background-icon">
+              <img src="/assets/ellipse-3.svg" alt="" srcset="">
+            </div>
+            <div class="icon">
+              <img class="icon-ontop" src="/assets/ic_play_arrow_black_24px.svg" alt="">
+            </div>
+          </div>
+          <div class="player__track--fastforward track-control">
+            <img src="/assets/ic_fast_forward_black_24px.svg" alt="" srcset="">
+          </div>
+          <div class="player__track--shuffle track-control">
+            <img src="/assets/ic_shuffle_black_24px.svg" alt="" srcset="">
+          </div>
+        </div>
       </div>
-      <!-- Playlist section -->
+      <!-- Player Playlist section -->
       <div class="player__playlist">
         <!-- Playlist artist section -->
         <div class="player__playlist--artist">
